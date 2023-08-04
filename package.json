@@ -9,7 +9,8 @@
     "lint": "next lint",
     "lint:html": "markuplint \"./src/**/*.{jsx,tsx}\"",
     "format": "prettier ./src --write",
-    "hcm": "hcm -w './src/**/*.module.{css,scss,less}'"
+    "hcm": "hcm -w './src/**/*.module.{css,scss,less}'",
+    "tsc": "tsc --noEmit"
   },
   "dependencies": {
     "@types/node": "20.4.7",
