@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:html": "markuplint \"./src/**/*.{jsx,tsx}\"",
     "format": "prettier ./src --write",
     "hcm": "hcm -w './src/**/*.module.{css,scss,less}'"
   },
@@ -23,8 +24,11 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@markuplint/jsx-parser": "^3.9.0",
+    "@markuplint/react-spec": "^3.10.0",
     "eslint-config-prettier": "^8.10.0",
     "happy-css-modules": "^2.1.2",
+    "markuplint": "^3.12.0",
     "prettier": "3.0.1"
   }
 }
