@@ -1,6 +1,6 @@
 {
   "extends": ["next/core-web-vitals", "prettier"],
-  "plugins": ["unused-imports", "import"],
+  "plugins": ["unused-imports", "import", "jest-dom", "testing-library"],
   "rules": {
     // https://github.com/sweepline/eslint-plugin-unused-imports#usage
     "no-unused-vars": "off",
