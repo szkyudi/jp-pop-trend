@@ -60,6 +60,9 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/Prefecture'
+            required:
+              - message
+              - result
       headers: {}
 security:
   - X-API-KEY: []

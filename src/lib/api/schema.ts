@@ -32,8 +32,8 @@ export interface components {
       headers: {}
       content: {
         'application/json': {
-          message?: string
-          result?: components['schemas']['Prefecture'][]
+          message: string
+          result: components['schemas']['Prefecture'][]
         }
       }
     }
