@@ -12,6 +12,7 @@
     "hcm": "hcm -w './src/**/*.module.{css,scss,less}'",
     "tsc": "tsc --noEmit",
     "test": "vitest run",
+    "test:watch": "vitest watch",
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
     "openapi": "openapi-typescript ./src/lib/api/schema.yaml -o ./src/lib/api/schema.ts",

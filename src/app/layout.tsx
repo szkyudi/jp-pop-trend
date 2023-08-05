@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import '@lib/styles/global.scss'
+import '@/lib/styles/global.scss'
 
 export const metadata: Metadata = {
   title: '都道府県別の総人口推移グラフを表示するSPA',
