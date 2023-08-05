@@ -5,10 +5,6 @@
     // https://github.com/sweepline/eslint-plugin-unused-imports#usage
     "no-unused-vars": "off",
     "unused-imports/no-unused-imports": "error",
-    "unused-imports/no-unused-vars": [
-      "warn",
-			{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
-    ],
 
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md#groups-array
     "import/order": [
