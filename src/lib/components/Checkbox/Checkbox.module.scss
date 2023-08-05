@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+
+.label {
+  display: inline-flex;
+}
+
+.span {
+  display: block;
+  padding: 0.5em 1em;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  &:hover {
+    background: $color-bg-hover;
+  }
+}
+
+.input:checked + .span {
+  background: $color-primary;
+  border-color: $color-primary;
+  color: #fff;
+  &:hover {
+    background: $color-primary-hover;
+  }
+}
