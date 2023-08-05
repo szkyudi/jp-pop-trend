@@ -1,0 +1,70 @@
+openapi: 3.1.0
+x-stoplight:
+  id: w4sw30tf27qq2
+info:
+  title: RESAS-API
+  version: '1.0'
+  summary: RESAS-API
+  description: 地域経済分析システムのデータを提供するAPIです。
+  contact:
+    name: szkyudi
+servers:
+  - url: 'https://opendata.resas-portal.go.jp/api/v1'
+    description: v1
+paths:
+  /prefectures:
+    get:
+      summary: Your GET endpoint
+      tags:
+        - prefectures
+      operationId: get-prefectures
+      description: 指定された都道府県に関する都道府県データを返します。
+      parameters: []
+      security:
+        - X-API-KEY: []
+      responses:
+        '200':
+          $ref: '#/components/responses/GetPrefecturesResponse'
+components:
+  schemas:
+    Prefecture:
+      title: Prefecture
+      x-stoplight:
+        id: uswekh1mcuwmy
+      type: object
+      properties:
+        prefCode:
+          type: integer
+        prefName:
+          type: string
+      required:
+        - prefCode
+        - prefName
+      description: 都道府県データ
+  securitySchemes:
+    X-API-KEY:
+      name: RESAS-API
+      type: apiKey
+      in: query
+  responses:
+    GetPrefecturesResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              result:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Prefecture'
+            required:
+              - message
+              - result
+      headers: {}
+security:
+  - X-API-KEY: []
+tags:
+  - name: prefectures
