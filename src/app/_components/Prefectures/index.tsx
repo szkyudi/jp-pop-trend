@@ -8,10 +8,5 @@ export default async function Prefectures() {
     return null
   }
 
-  return (
-    <PrefecturesContainer
-      prefectures={data.result}
-      defaultCheckedPrefectures={[13, 27]} // 東京都と大阪府をデフォルトでチェック
-    />
-  )
+  return <PrefecturesContainer prefectures={data.result} />
 }
