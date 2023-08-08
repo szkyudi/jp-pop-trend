@@ -1,20 +1,20 @@
 import {
-  CheckedPrefecturesProvider,
-  useCheckedPrefectures,
-  useSetCheckedPrefectures,
+  CheckedPrefCodesProvider,
+  useCheckedPrefCodes,
+  useSetCheckedPrefCodes,
 } from '.'
 import { render, act } from '@testing-library/react'
 import React from 'react'
 
 describe('都道府県選択コンテキストのテスト', () => {
   const TestComponent = () => {
-    const checkedPrefectures = useCheckedPrefectures()
-    const setCheckedPrefectures = useSetCheckedPrefectures()
+    const checkedPrefCodes = useCheckedPrefCodes()
+    const setCheckedPrefCodes = useSetCheckedPrefCodes()
 
     return (
       <div>
-        <div data-testid='checked-values'>{checkedPrefectures.join(',')}</div>
-        <button onClick={() => setCheckedPrefectures([1, 2, 3])}>
+        <div data-testid='checked-values'>{checkedPrefCodes.join(',')}</div>
+        <button onClick={() => setCheckedPrefCodes([1, 2, 3])}>
           都道府県を設定
         </button>
       </div>
@@ -23,9 +23,9 @@ describe('都道府県選択コンテキストのテスト', () => {
 
   it('デフォルト値を正しく持っていること', () => {
     const { getByTestId } = render(
-      <CheckedPrefecturesProvider defaultChecked={[5, 6, 7]}>
+      <CheckedPrefCodesProvider defaultChecked={[5, 6, 7]}>
         <TestComponent />
-      </CheckedPrefecturesProvider>,
+      </CheckedPrefCodesProvider>,
     )
 
     expect(getByTestId('checked-values').textContent).toBe('5,6,7')
@@ -33,9 +33,9 @@ describe('都道府県選択コンテキストのテスト', () => {
 
   it('都道府県の値を正しく設定できること', () => {
     const { getByTestId, getByText } = render(
-      <CheckedPrefecturesProvider>
+      <CheckedPrefCodesProvider>
         <TestComponent />
-      </CheckedPrefecturesProvider>,
+      </CheckedPrefCodesProvider>,
     )
 
     act(() => {

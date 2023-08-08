@@ -1,5 +1,5 @@
 import { PrefecturesContainer } from './Container'
-import { CheckedPrefecturesProvider } from '@/app/_contexts/checkedPrefectures'
+import { CheckedPrefCodesProvider } from '@/app/_contexts/checkedPrefCodes'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof PrefecturesContainer> = {
@@ -62,9 +62,9 @@ export const NoCheck: StoryObj<typeof PrefecturesContainer> = {
   name: 'チェックなし',
   decorators: [
     (Story) => (
-      <CheckedPrefecturesProvider defaultChecked={[]}>
+      <CheckedPrefCodesProvider defaultChecked={[]}>
         <Story />
-      </CheckedPrefecturesProvider>
+      </CheckedPrefCodesProvider>
     ),
   ],
   args: {
@@ -76,9 +76,9 @@ export const CheckedTokyoAndOsaka: StoryObj<typeof PrefecturesContainer> = {
   name: '東京都と大阪府にチェック済み',
   decorators: [
     (Story) => (
-      <CheckedPrefecturesProvider defaultChecked={[13, 27]}>
+      <CheckedPrefCodesProvider defaultChecked={[13, 27]}>
         <Story />
-      </CheckedPrefecturesProvider>
+      </CheckedPrefCodesProvider>
     ),
   ],
   args: {

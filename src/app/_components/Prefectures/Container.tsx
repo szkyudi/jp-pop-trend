@@ -2,9 +2,9 @@
 
 import { PrefecturesPresenter } from './Presenter'
 import {
-  useCheckedPrefectures,
-  useSetCheckedPrefectures,
-} from '@/app/_contexts/checkedPrefectures'
+  useCheckedPrefCodes,
+  useSetCheckedPrefCodes,
+} from '@/app/_contexts/checkedPrefCodes'
 
 import { components } from '@/lib/api/schema'
 
@@ -12,14 +12,14 @@ type Props = {
   prefectures: components['schemas']['Prefecture'][]
 }
 export function PrefecturesContainer({ prefectures }: Props) {
-  const checkedPrefectures = useCheckedPrefectures()
-  const setCheckedPrefectures = useSetCheckedPrefectures()
+  const checkedPrefectures = useCheckedPrefCodes()
+  const setCheckedPrefCodes = useSetCheckedPrefCodes()
 
   const handleChange = (prefCode: number) => (checked: boolean) => {
     if (checked) {
-      setCheckedPrefectures([...checkedPrefectures, prefCode])
+      setCheckedPrefCodes([...checkedPrefectures, prefCode])
     } else {
-      setCheckedPrefectures(
+      setCheckedPrefCodes(
         checkedPrefectures.filter((code) => code !== prefCode),
       )
     }
