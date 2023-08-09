@@ -1,12 +1,9 @@
 import { PrefecturesContainer } from './Container'
-import { api } from '@/lib/api'
+import { components } from '@/lib/api/schema'
 
-export default async function Prefectures() {
-  const { data } = await api.GET('/prefectures', {})
-
-  if (!data) {
-    return null
-  }
-
-  return <PrefecturesContainer prefectures={data.result} />
+type Props = {
+  prefectures: components['schemas']['Prefecture'][]
+}
+export default async function Prefectures({ prefectures }: Props) {
+  return <PrefecturesContainer prefectures={prefectures} />
 }
