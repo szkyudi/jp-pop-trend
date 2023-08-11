@@ -1,6 +1,6 @@
 'use client'
 
-import { PrefecturesPresenter } from './Presenter'
+import { Presenter } from './Presenter'
 import {
   useCheckedPrefCodes,
   useSetCheckedPrefCodes,
@@ -11,7 +11,7 @@ import { components } from '@/lib/api/schema'
 type Props = {
   prefectures: components['schemas']['Prefecture'][]
 }
-export function PrefecturesContainer({ prefectures }: Props) {
+export function Container({ prefectures }: Props) {
   const checkedPrefectures = useCheckedPrefCodes()
   const setCheckedPrefCodes = useSetCheckedPrefCodes()
 
@@ -26,7 +26,7 @@ export function PrefecturesContainer({ prefectures }: Props) {
   }
 
   return (
-    <PrefecturesPresenter
+    <Presenter
       prefectures={prefectures}
       onChange={handleChange}
       checkedPrefectures={checkedPrefectures}

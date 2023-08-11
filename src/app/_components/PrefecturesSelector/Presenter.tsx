@@ -7,7 +7,7 @@ type Props = {
   checkedPrefectures: number[]
   onChange: (prefCode: number) => (checked: boolean) => void
 }
-export function PrefecturesPresenter({
+export function Presenter({
   prefectures,
   checkedPrefectures,
   onChange,

@@ -1,5 +1,5 @@
 import { PopulationChart } from './_components/PopulationChart'
-import Prefectures from './_components/Prefectures'
+import { PrefecturesSelector } from './_components/PrefecturesSelector'
 import { CheckedPrefCodesProvider } from './_contexts/checkedPrefCodes'
 import { CheckedPopulationTypeProvider } from './_contexts/checkedPopulationType'
 import { PopulationSegment } from './_components/PopulationSegment'
@@ -34,7 +34,7 @@ export default async function Home() {
           <Container>
             <main>
               <h1>都道府県別の総人口推移グラフを表示するSPA</h1>
-              <Prefectures prefectures={prefectures} />
+              <PrefecturesSelector prefectures={prefectures} />
               <PopulationChart populations={populations} />
               <PopulationSegment />
             </main>
