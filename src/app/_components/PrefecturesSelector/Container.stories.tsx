@@ -3,7 +3,6 @@ import { CheckedPrefCodesProvider } from '@/app/_contexts/checkedPrefCodes'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Container> = {
-  title: '都道府県のチェックボックス一覧',
   component: Container,
   args: {
     prefectures: [
@@ -58,8 +57,20 @@ const meta: Meta<typeof Container> = {
   },
 }
 
+export const Default: StoryObj<typeof Container> = {
+  decorators: [
+    (Story) => (
+      <CheckedPrefCodesProvider>
+        <Story />
+      </CheckedPrefCodesProvider>
+    ),
+  ],
+  args: {
+    ...meta.args,
+  },
+}
+
 export const NoCheck: StoryObj<typeof Container> = {
-  name: 'チェックなし',
   decorators: [
     (Story) => (
       <CheckedPrefCodesProvider defaultChecked={[]}>
@@ -73,7 +84,6 @@ export const NoCheck: StoryObj<typeof Container> = {
 }
 
 export const CheckedTokyoAndOsaka: StoryObj<typeof Container> = {
-  name: '東京都と大阪府にチェック済み',
   decorators: [
     (Story) => (
       <CheckedPrefCodesProvider defaultChecked={[13, 27]}>
