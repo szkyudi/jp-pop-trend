@@ -2,8 +2,9 @@
 
 .list {
   display: inline-flex;
+  flex-wrap: wrap;
   padding: 4px;
-  gap: 8px;
+  gap: 4px;
   border: 1px solid $color-border;
   border-radius: 4px;
   &:focus-within {
