@@ -19,8 +19,13 @@ export function PopulationChartPresenter({ dataList }: Props) {
   return (
     <LineChart width={800} height={300}>
       <CartesianGrid strokeDasharray='3 3' />
-      <XAxis dataKey='year' type='category' allowDuplicatedCategory={false} />
-      <YAxis dataKey='value' />
+      <XAxis
+        dataKey='year'
+        type='category'
+        allowDuplicatedCategory={false}
+        unit='年'
+      />
+      <YAxis dataKey='value' unit='人' />
       <Tooltip />
       <Legend />
       {dataList.map(({ prefecture, data }) => (
