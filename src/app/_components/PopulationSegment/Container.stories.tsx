@@ -1,14 +1,14 @@
-import { PopulationSegmentContainer } from './Container'
+import { Container } from './Container'
 import { CheckedPopulationTypeProvider } from '@/app/_contexts/checkedPopulationType'
 import { Meta, StoryObj } from '@storybook/react'
 import { within } from '@storybook/testing-library'
 
-const meta: Meta<typeof PopulationSegmentContainer> = {
+const meta: Meta<typeof Container> = {
   title: '表示する人口構成の選択',
-  component: PopulationSegmentContainer,
+  component: Container,
 }
 
-export const Default: StoryObj<typeof PopulationSegmentContainer> = {
+export const Default: StoryObj<typeof Container> = {
   decorators: [
     (Story) => (
       <CheckedPopulationTypeProvider>
@@ -18,7 +18,7 @@ export const Default: StoryObj<typeof PopulationSegmentContainer> = {
   ],
 }
 
-export const Focus: StoryObj<typeof PopulationSegmentContainer> = {
+export const Focus: StoryObj<typeof Container> = {
   decorators: [
     (Story) => (
       <CheckedPopulationTypeProvider defaultChecked='総人口'>

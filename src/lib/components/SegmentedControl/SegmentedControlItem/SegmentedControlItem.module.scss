@@ -1,12 +1,26 @@
 @import '../../../styles/variables.scss';
 
+.item {
+  position: relative;
+}
+
+.label {
+  display: block;
+}
+
+.input {
+  position: absolute;
+}
+
 .text {
-  display: inline-block;
-  padding: 8px 16px;
+  display: block;
+  text-align: center;
+  padding: 0.5em 1em;
   color: $color-text-disable;
   border: 1px dashed $color-border;
   border-radius: 4px;
   cursor: pointer;
+  word-break: keep-all;
   &:hover {
     background: $color-bg-hover;
   }

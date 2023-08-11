@@ -7,7 +7,7 @@ type Props = {
   checkedPrefectures: number[]
   onChange: (prefCode: number) => (checked: boolean) => void
 }
-export function PrefecturesPresenter({
+export function Presenter({
   prefectures,
   checkedPrefectures,
   onChange,
@@ -15,7 +15,7 @@ export function PrefecturesPresenter({
   return (
     <ul className={s.list}>
       {prefectures.map(({ prefCode, prefName }) => (
-        <li key={prefCode}>
+        <li className={s.item} key={prefCode}>
           <Checkbox
             checked={checkedPrefectures.includes(prefCode)}
             onChange={onChange(prefCode)}

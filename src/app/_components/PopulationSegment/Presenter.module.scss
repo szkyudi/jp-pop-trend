@@ -1,0 +1,8 @@
+@import '../../../lib/styles/variables.scss';
+
+.container {
+  font-size: 12px;
+  @media (min-width: $bp-sm) {
+    font-size: 16px;
+  }
+}

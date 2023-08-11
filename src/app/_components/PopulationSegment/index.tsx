@@ -1,5 +1,5 @@
-import { PopulationSegmentContainer } from './Container'
+import { Container } from './Container'
 
 export function PopulationSegment() {
-  return <PopulationSegmentContainer />
+  return <Container />
 }

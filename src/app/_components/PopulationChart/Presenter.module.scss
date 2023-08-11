@@ -1,0 +1,9 @@
+@import '../../../lib/styles/variables.scss';
+
+.container {
+  overflow-y: scroll;
+  padding: 16px;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  background: #fff;
+}

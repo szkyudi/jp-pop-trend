@@ -13,8 +13,8 @@ export function SegmentedControlItem({
   ...props
 }: Props) {
   return (
-    <li>
-      <label>
+    <li className={s.item}>
+      <label className={s.label}>
         <input className={s.input} type='radio' {...props} />
         <span className={s.text}>{children}</span>
       </label>

@@ -1,0 +1,14 @@
+@import '../../../lib/styles/variables.scss';
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.item {
+  font-size: 12px;
+  @media screen and (min-width: $bp-sm) {
+    font-size: 16px;
+  }
+}
