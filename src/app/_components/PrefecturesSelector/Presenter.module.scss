@@ -1,3 +1,5 @@
+@import '../../../lib/styles/variables.scss';
+
 .list {
   display: flex;
   flex-wrap: wrap;
@@ -5,5 +7,8 @@
 }
 
 .item {
-  font-size: 14px;
+  font-size: 12px;
+  @media screen and (min-width: $bp-sm) {
+    font-size: 16px;
+  }
 }
