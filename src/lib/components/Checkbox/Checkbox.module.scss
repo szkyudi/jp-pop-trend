@@ -1,7 +1,12 @@
 @import '../../styles/variables.scss';
 
 .label {
-  display: inline-flex;
+  display: inline-block;
+  position: relative;
+}
+
+.input {
+  position: absolute;
 }
 
 .span {
