@@ -15,7 +15,7 @@ export function Presenter({
   return (
     <ul className={s.list}>
       {prefectures.map(({ prefCode, prefName }) => (
-        <li key={prefCode}>
+        <li className={s.item} key={prefCode}>
           <Checkbox
             checked={checkedPrefectures.includes(prefCode)}
             onChange={onChange(prefCode)}
