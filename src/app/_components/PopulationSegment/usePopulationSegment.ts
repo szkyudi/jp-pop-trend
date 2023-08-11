@@ -1,27 +1,27 @@
 import {
-  useCheckedPopulationLabel,
-  useSetCheckedPopulationLabel,
-} from '@/app/_contexts/checkedPopulationLabel'
+  useCheckedPopulationType,
+  useSetCheckedPopulationType,
+} from '@/app/_contexts/checkedPopulationType'
 import { components } from '@/lib/api/schema'
 
 export function usePopulationSegment() {
-  const checkedLabel = useCheckedPopulationLabel()
-  const setCheckedLabel = useSetCheckedPopulationLabel()
-  const labels: components['schemas']['PopulationLabel'][] = [
+  const checkedType = useCheckedPopulationType()
+  const setCheckedType = useSetCheckedPopulationType()
+  const populationTypes: components['schemas']['PopulationType'][] = [
     '総人口',
     '年少人口',
     '生産年齢人口',
     '老年人口',
   ]
 
-  const segmentItems = labels.map((label) => {
+  const segmentItems = populationTypes.map((populationType) => {
     return {
-      label,
-      name: 'populationLabel',
-      value: label,
-      defaultChecked: checkedLabel === label,
-      checked: checkedLabel === label,
-      onChange: () => setCheckedLabel(label),
+      populationType,
+      name: 'populationType',
+      value: populationType,
+      defaultChecked: checkedType === populationType,
+      checked: checkedType === populationType,
+      onChange: () => setCheckedType(populationType),
     }
   })
 

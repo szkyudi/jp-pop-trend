@@ -12,16 +12,23 @@ export function PopulationSegmentPresenter({ items }: Props) {
   return (
     <SegmentedControl>
       {items.map(
-        ({ label, name, value, defaultChecked, checked, onChange }) => (
+        ({
+          populationType,
+          name,
+          value,
+          defaultChecked,
+          checked,
+          onChange,
+        }) => (
           <SegmentedControlItem
-            key={label}
+            key={populationType}
             name={name}
             value={value}
             defaultChecked={defaultChecked}
             checked={checked}
             onChange={onChange}
           >
-            {label}
+            {populationType}
           </SegmentedControlItem>
         ),
       )}

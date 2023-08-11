@@ -87,8 +87,8 @@ components:
         - value
       x-tags:
         - population
-    PopulationLabel:
-      title: PopulationLabel
+    PopulationType:
+      title: PopulationType
       x-stoplight:
         id: 41c781a183301
       type: string
@@ -145,7 +145,7 @@ components:
                       type: object
                       properties:
                         label:
-                          $ref: '#/components/schemas/PopulationLabel'
+                          $ref: '#/components/schemas/PopulationType'
                         data:
                           type: array
                           items:

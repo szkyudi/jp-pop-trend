@@ -1,5 +1,5 @@
 import { PopulationSegmentContainer } from './Container'
-import { CheckedPopulationLabelProvider } from '@/app/_contexts/checkedPopulationLabel'
+import { CheckedPopulationTypeProvider } from '@/app/_contexts/checkedPopulationType'
 import { Meta, StoryObj } from '@storybook/react'
 import { within } from '@storybook/testing-library'
 
@@ -11,9 +11,9 @@ const meta: Meta<typeof PopulationSegmentContainer> = {
 export const Default: StoryObj<typeof PopulationSegmentContainer> = {
   decorators: [
     (Story) => (
-      <CheckedPopulationLabelProvider>
+      <CheckedPopulationTypeProvider>
         <Story />
-      </CheckedPopulationLabelProvider>
+      </CheckedPopulationTypeProvider>
     ),
   ],
 }
@@ -21,9 +21,9 @@ export const Default: StoryObj<typeof PopulationSegmentContainer> = {
 export const Focus: StoryObj<typeof PopulationSegmentContainer> = {
   decorators: [
     (Story) => (
-      <CheckedPopulationLabelProvider defaultChecked='総人口'>
+      <CheckedPopulationTypeProvider defaultChecked='総人口'>
         <Story />
-      </CheckedPopulationLabelProvider>
+      </CheckedPopulationTypeProvider>
     ),
   ],
   play: async ({ canvasElement }) => {

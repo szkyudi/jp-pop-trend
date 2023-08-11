@@ -43,11 +43,11 @@ export interface components {
       rate?: number
     }
     /**
-     * PopulationLabel
+     * PopulationType
      * @description 人口構成のカテゴリーを表すラベル
      * @enum {string}
      */
-    PopulationLabel: '総人口' | '年少人口' | '生産年齢人口' | '老年人口'
+    PopulationType: '総人口' | '年少人口' | '生産年齢人口' | '老年人口'
   }
   responses: {
     /** @description Example response */
@@ -69,7 +69,7 @@ export interface components {
             /** @description 実績値と推計値の区切り年 */
             boundaryYear: number
             data: {
-              label: components['schemas']['PopulationLabel']
+              label: components['schemas']['PopulationType']
               data: components['schemas']['Population'][]
             }[]
           }
