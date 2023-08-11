@@ -8,7 +8,7 @@ import {
 type Props = {
   items: ReturnType<typeof usePopulationSegment>['segmentItems']
 }
-export function PopulationSegmentPresenter({ items }: Props) {
+export function Presenter({ items }: Props) {
   return (
     <SegmentedControl>
       {items.map(({ populationType, name, value, checked, onChange }) => (

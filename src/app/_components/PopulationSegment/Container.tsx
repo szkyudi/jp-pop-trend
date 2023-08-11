@@ -1,10 +1,10 @@
 'use client'
 
-import { PopulationSegmentPresenter } from './Presenter'
+import { Presenter } from './Presenter'
 import { usePopulationSegment } from './usePopulationSegment'
 
-export function PopulationSegmentContainer() {
+export function Container() {
   const { segmentItems } = usePopulationSegment()
 
-  return <PopulationSegmentPresenter items={segmentItems} />
+  return <Presenter items={segmentItems} />
 }
