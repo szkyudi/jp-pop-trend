@@ -25,7 +25,7 @@ export function PopulationChartPresenter({ dataList }: Props) {
         allowDuplicatedCategory={false}
         unit='年'
       />
-      <YAxis dataKey='value' unit='人' />
+      <YAxis dataKey='value' unit='人' width={104} />
       <Tooltip />
       <Legend />
       {dataList.map(({ prefecture, data }) => (
