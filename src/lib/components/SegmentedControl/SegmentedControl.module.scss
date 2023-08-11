@@ -1,0 +1,13 @@
+@import '../../styles/variables.scss';
+
+.list {
+  display: inline-flex;
+  padding: 4px;
+  gap: 8px;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  &:focus-within {
+    border-color: $color-primary;
+    outline: 1px solid $color-primary;
+  }
+}

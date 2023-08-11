@@ -24,3 +24,8 @@
     background: $color-primary-hover;
   }
 }
+
+.input:focus + .span {
+  border: 1px solid $color-accent;
+  outline: 1px solid $color-accent;
+}

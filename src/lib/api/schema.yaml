@@ -25,6 +25,33 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/GetPrefecturesResponse'
+  /population/composition/perYear:
+    get:
+      summary: 人口構成
+      tags:
+        - population
+      responses:
+        '200':
+          $ref: '#/components/responses/GetPopulationResponse'
+      operationId: get-population-composition-perYear
+      security:
+        - X-API-KEY: []
+      description: 地域単位、年単位の年齢構成のデータを返します。
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: prefCode
+          description: 都道府県コード
+          required: true
+        - schema:
+            type: string
+            default: '-'
+          in: query
+          name: cityCode
+          description: 市区町村コード
+          required: true
+    parameters: []
 components:
   schemas:
     Prefecture:
@@ -41,6 +68,36 @@ components:
         - prefCode
         - prefName
       description: 都道府県データ
+    Population:
+      title: Population
+      x-stoplight:
+        id: z5mvfghtjfr2x
+      type: object
+      description: 年単位の人口構成のデータ
+      properties:
+        year:
+          type: integer
+        value:
+          type: integer
+        rate:
+          type: number
+          description: labelが総人口の場合は存在しない
+      required:
+        - year
+        - value
+      x-tags:
+        - population
+    PopulationType:
+      title: PopulationType
+      x-stoplight:
+        id: 41c781a183301
+      type: string
+      description: 人口構成のカテゴリーを表すラベル
+      enum:
+        - 総人口
+        - 年少人口
+        - 生産年齢人口
+        - 老年人口
   securitySchemes:
     X-API-KEY:
       name: RESAS-API
@@ -64,7 +121,43 @@ components:
               - message
               - result
       headers: {}
+    GetPopulationResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              result:
+                type: object
+                required:
+                  - boundaryYear
+                  - data
+                properties:
+                  boundaryYear:
+                    type: integer
+                    description: 実績値と推計値の区切り年
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        label:
+                          $ref: '#/components/schemas/PopulationType'
+                        data:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/Population'
+                      required:
+                        - label
+                        - data
+            required:
+              - message
+              - result
 security:
   - X-API-KEY: []
 tags:
+  - name: population
   - name: prefectures

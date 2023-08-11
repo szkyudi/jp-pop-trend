@@ -1,40 +1,35 @@
 'use client'
 
 import { PrefecturesPresenter } from './Presenter'
-import { components } from '@/lib/api/schema'
-import { createContext, useState } from 'react'
+import {
+  useCheckedPrefCodes,
+  useSetCheckedPrefCodes,
+} from '@/app/_contexts/checkedPrefCodes'
 
-export const CheckedPrefecturesContext = createContext<number[]>([])
+import { components } from '@/lib/api/schema'
 
 type Props = {
   prefectures: components['schemas']['Prefecture'][]
-  defaultCheckedPrefectures?: number[]
 }
-export function PrefecturesContainer({
-  prefectures,
-  defaultCheckedPrefectures = [],
-}: Props) {
-  const [checkedPrefectures, setCheckedPrefectures] = useState<number[]>(
-    defaultCheckedPrefectures,
-  )
+export function PrefecturesContainer({ prefectures }: Props) {
+  const checkedPrefectures = useCheckedPrefCodes()
+  const setCheckedPrefCodes = useSetCheckedPrefCodes()
 
   const handleChange = (prefCode: number) => (checked: boolean) => {
     if (checked) {
-      setCheckedPrefectures([...checkedPrefectures, prefCode])
+      setCheckedPrefCodes([...checkedPrefectures, prefCode])
     } else {
-      setCheckedPrefectures(
+      setCheckedPrefCodes(
         checkedPrefectures.filter((code) => code !== prefCode),
       )
     }
   }
 
   return (
-    <CheckedPrefecturesContext.Provider value={checkedPrefectures}>
-      <PrefecturesPresenter
-        prefectures={prefectures}
-        onChange={handleChange}
-        checkedPrefectures={checkedPrefectures}
-      />
-    </CheckedPrefecturesContext.Provider>
+    <PrefecturesPresenter
+      prefectures={prefectures}
+      onChange={handleChange}
+      checkedPrefectures={checkedPrefectures}
+    />
   )
 }
