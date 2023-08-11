@@ -2,11 +2,12 @@
 
 .text {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 0.5em 1em;
   color: $color-text-disable;
   border: 1px dashed $color-border;
   border-radius: 4px;
   cursor: pointer;
+  word-break: keep-all;
   &:hover {
     background: $color-bg-hover;
   }
