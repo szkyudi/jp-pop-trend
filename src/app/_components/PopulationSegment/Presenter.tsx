@@ -1,5 +1,5 @@
 import { usePopulationSegment } from './usePopulationSegment'
-
+import s from './Presenter.module.scss'
 import {
   SegmentedControl,
   SegmentedControlItem,
@@ -10,18 +10,20 @@ type Props = {
 }
 export function Presenter({ items }: Props) {
   return (
-    <SegmentedControl>
-      {items.map(({ populationType, name, value, checked, onChange }) => (
-        <SegmentedControlItem
-          key={populationType}
-          name={name}
-          value={value}
-          checked={checked}
-          onChange={onChange}
-        >
-          {populationType}
-        </SegmentedControlItem>
-      ))}
-    </SegmentedControl>
+    <div className={s.container}>
+      <SegmentedControl>
+        {items.map(({ populationType, name, value, checked, onChange }) => (
+          <SegmentedControlItem
+            key={populationType}
+            name={name}
+            value={value}
+            checked={checked}
+            onChange={onChange}
+          >
+            {populationType}
+          </SegmentedControlItem>
+        ))}
+      </SegmentedControl>
+    </div>
   )
 }
