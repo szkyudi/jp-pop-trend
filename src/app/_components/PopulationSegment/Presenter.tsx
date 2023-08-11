@@ -11,27 +11,17 @@ type Props = {
 export function PopulationSegmentPresenter({ items }: Props) {
   return (
     <SegmentedControl>
-      {items.map(
-        ({
-          populationType,
-          name,
-          value,
-          defaultChecked,
-          checked,
-          onChange,
-        }) => (
-          <SegmentedControlItem
-            key={populationType}
-            name={name}
-            value={value}
-            defaultChecked={defaultChecked}
-            checked={checked}
-            onChange={onChange}
-          >
-            {populationType}
-          </SegmentedControlItem>
-        ),
-      )}
+      {items.map(({ populationType, name, value, checked, onChange }) => (
+        <SegmentedControlItem
+          key={populationType}
+          name={name}
+          value={value}
+          checked={checked}
+          onChange={onChange}
+        >
+          {populationType}
+        </SegmentedControlItem>
+      ))}
     </SegmentedControl>
   )
 }

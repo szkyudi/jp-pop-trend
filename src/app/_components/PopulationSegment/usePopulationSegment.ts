@@ -19,7 +19,6 @@ export function usePopulationSegment() {
       populationType,
       name: 'populationType',
       value: populationType,
-      defaultChecked: checkedType === populationType,
       checked: checkedType === populationType,
       onChange: () => setCheckedType(populationType),
     }
