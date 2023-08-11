@@ -1,15 +1,15 @@
+import { useCheckedPopulationLabel } from '@/app/_contexts/checkedPopulationLabel'
 import { useCheckedPrefCodes } from '@/app/_contexts/checkedPrefCodes'
-import { components } from '@/lib/api/schema'
 import { Populations } from '@/lib/types/populations'
 
 export function usePopulationChart(populations: Populations) {
   const checkedPrefCodes = useCheckedPrefCodes()
-  const label: components['schemas']['PopulationLabel'] = '総人口'
+  const checkedPopulationLabel = useCheckedPopulationLabel()
 
   function getPopulationData(prefCode: number) {
     return (
       populations[prefCode].populations.data.find(
-        (data) => data.label === label,
+        (data) => data.label === checkedPopulationLabel,
       )?.data ?? []
     )
   }

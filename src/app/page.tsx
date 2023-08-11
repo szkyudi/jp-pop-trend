@@ -1,6 +1,7 @@
 import { PopulationChart } from './_components/PopulationChart'
 import Prefectures from './_components/Prefectures'
 import { CheckedPrefCodesProvider } from './_contexts/checkedPrefCodes'
+import { CheckedPopulationLabelProvider } from './_contexts/checkedPopulationLabel'
 import { Populations } from '@/lib/types/populations'
 import { getPrefectures } from '@/lib/api/getPrefectures'
 import { getPopulation } from '@/lib/api/getPopulation'
@@ -24,11 +25,13 @@ export default async function Home() {
   return (
     // 東京都と大阪府をデフォルトでチェック
     <CheckedPrefCodesProvider defaultChecked={[13, 27]}>
-      <main>
-        <h1>都道府県別の総人口推移グラフを表示するSPA</h1>
-        <Prefectures prefectures={prefectures} />
-        <PopulationChart populations={populations} />
-      </main>
+      <CheckedPopulationLabelProvider defaultChecked='年少人口'>
+        <main>
+          <h1>都道府県別の総人口推移グラフを表示するSPA</h1>
+          <Prefectures prefectures={prefectures} />
+          <PopulationChart populations={populations} />
+        </main>
+      </CheckedPopulationLabelProvider>
     </CheckedPrefCodesProvider>
   )
 }
