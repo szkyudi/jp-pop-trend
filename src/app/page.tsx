@@ -3,9 +3,11 @@ import Prefectures from './_components/Prefectures'
 import { CheckedPrefCodesProvider } from './_contexts/checkedPrefCodes'
 import { CheckedPopulationTypeProvider } from './_contexts/checkedPopulationType'
 import { PopulationSegment } from './_components/PopulationSegment'
+import { Header } from './_components/Header/Header'
 import { Populations } from '@/lib/types/populations'
 import { getPrefectures } from '@/lib/api/getPrefectures'
 import { getPopulation } from '@/lib/api/getPopulation'
+import { Container } from '@/lib/components/Contianer'
 
 export const revalidate = 86400 // 24 hours
 
@@ -24,16 +26,21 @@ export default async function Home() {
   }
 
   return (
-    // 東京都と大阪府をデフォルトでチェック
-    <CheckedPrefCodesProvider defaultChecked={[13, 27]}>
-      <CheckedPopulationTypeProvider>
-        <main>
-          <h1>都道府県別の総人口推移グラフを表示するSPA</h1>
-          <Prefectures prefectures={prefectures} />
-          <PopulationChart populations={populations} />
-          <PopulationSegment />
-        </main>
-      </CheckedPopulationTypeProvider>
-    </CheckedPrefCodesProvider>
+    <>
+      <Header />
+      {/* 東京都と大阪府をデフォルトでチェック */}
+      <CheckedPrefCodesProvider defaultChecked={[13, 27]}>
+        <CheckedPopulationTypeProvider>
+          <Container>
+            <main>
+              <h1>都道府県別の総人口推移グラフを表示するSPA</h1>
+              <Prefectures prefectures={prefectures} />
+              <PopulationChart populations={populations} />
+              <PopulationSegment />
+            </main>
+          </Container>
+        </CheckedPopulationTypeProvider>
+      </CheckedPrefCodesProvider>
+    </>
   )
 }
