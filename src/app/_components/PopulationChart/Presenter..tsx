@@ -1,3 +1,4 @@
+import s from './Presenter.module.scss'
 import { components } from '@/lib/api/schema'
 import {
   LineChart,
@@ -7,6 +8,7 @@ import {
   Tooltip,
   Legend,
   Line,
+  ResponsiveContainer,
 } from 'recharts'
 
 type Props = {
@@ -17,25 +19,43 @@ type Props = {
 }
 export function PopulationChartPresenter({ dataList }: Props) {
   return (
-    <LineChart width={800} height={300}>
-      <CartesianGrid strokeDasharray='3 3' />
-      <XAxis
-        dataKey='year'
-        type='category'
-        allowDuplicatedCategory={false}
-        unit='年'
-      />
-      <YAxis dataKey='value' unit='人' width={104} />
-      <Tooltip />
-      <Legend />
-      {dataList.map(({ prefecture, data }) => (
-        <Line
-          key={prefecture.prefCode}
-          dataKey='value'
-          data={data}
-          name={prefecture.prefName}
-        />
-      ))}
-    </LineChart>
+    <div className={s.container}>
+      <ResponsiveContainer minWidth={720} width='100%' height={400}>
+        <LineChart margin={{ top: 24, right: 24 }}>
+          <CartesianGrid strokeDasharray='3 3' />
+          <XAxis
+            dataKey='year'
+            type='category'
+            allowDuplicatedCategory={false}
+            label={{
+              value: '年',
+              offset: -24,
+              position: 'insideTopRight',
+            }}
+          />
+          <YAxis
+            dataKey='value'
+            label={{
+              value: '千人',
+              offset: -20,
+              position: 'insideTopRight',
+            }}
+            tickFormatter={(value) => (value / 1000).toString()}
+          />
+          <Tooltip />
+          <Legend />
+          {dataList.map(({ prefecture, data }, index) => (
+            <Line
+              key={prefecture.prefCode}
+              dataKey='value'
+              data={data}
+              name={prefecture.prefName}
+              stroke={`hsl(${(360 / dataList.length) * index}, 30%, 50%)`}
+              strokeWidth={2}
+            />
+          ))}
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
   )
 }
