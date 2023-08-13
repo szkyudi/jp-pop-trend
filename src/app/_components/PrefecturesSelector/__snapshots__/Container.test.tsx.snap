@@ -1888,7 +1888,6 @@ exports[`選択しているときの表示が変わっていないこと 1`] = `
             class="_label_6245af"
           >
             <input
-              checked=""
               class="_input_6245af"
               type="checkbox"
             />
@@ -2127,7 +2126,6 @@ exports[`選択しているときの表示が変わっていないこと 1`] = `
             class="_label_6245af"
           >
             <input
-              checked=""
               class="_input_6245af"
               type="checkbox"
             />
@@ -2696,7 +2694,6 @@ exports[`選択しているときの表示が変わっていないこと 1`] = `
           class="_label_6245af"
         >
           <input
-            checked=""
             class="_input_6245af"
             type="checkbox"
           />
@@ -2935,7 +2932,6 @@ exports[`選択しているときの表示が変わっていないこと 1`] = `
           class="_label_6245af"
         >
           <input
-            checked=""
             class="_input_6245af"
             type="checkbox"
           />
