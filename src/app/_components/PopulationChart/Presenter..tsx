@@ -20,7 +20,7 @@ type Props = {
 export function PopulationChartPresenter({ dataList }: Props) {
   return (
     <div className={s.container}>
-      <ResponsiveContainer minWidth={720} width='100%' height={400}>
+      <ResponsiveContainer minWidth={720} width='100%' height={480}>
         <LineChart margin={{ top: 24, right: 24 }}>
           <CartesianGrid strokeDasharray='3 3' />
           <XAxis
