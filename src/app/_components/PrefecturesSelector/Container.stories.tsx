@@ -65,9 +65,6 @@ export const Default: StoryObj<typeof Container> = {
       </CheckedPrefCodesProvider>
     ),
   ],
-  args: {
-    ...meta.args,
-  },
 }
 
 export const NoCheck: StoryObj<typeof Container> = {
@@ -78,9 +75,6 @@ export const NoCheck: StoryObj<typeof Container> = {
       </CheckedPrefCodesProvider>
     ),
   ],
-  args: {
-    ...meta.args,
-  },
 }
 
 export const CheckedTokyoAndOsaka: StoryObj<typeof Container> = {
@@ -91,8 +85,5 @@ export const CheckedTokyoAndOsaka: StoryObj<typeof Container> = {
       </CheckedPrefCodesProvider>
     ),
   ],
-  args: {
-    ...meta.args,
-  },
 }
 export default meta
