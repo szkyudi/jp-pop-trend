@@ -4,7 +4,6 @@ import { Meta, StoryObj } from '@storybook/react'
 import { userEvent, within } from '@storybook/testing-library'
 
 const meta: Meta<typeof Container> = {
-  title: '表示する人口構成の選択',
   component: Container,
 }
 
