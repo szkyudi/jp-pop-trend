@@ -178,3 +178,17 @@ it('存在しない人口種別がチェックされているときは空配列�
 
   expect(dataList?.data).toEqual([])
 })
+
+it('tickFormatterが正しく動作すること', () => {
+  const { result } = renderHook(() => usePopulationChart({}), {
+    wrapper: ({ children }) => (
+      <CheckedPrefCodesProvider defaultChecked={[]}>
+        <CheckedPopulationTypeProvider defaultChecked='総人口'>
+          {children}
+        </CheckedPopulationTypeProvider>
+      </CheckedPrefCodesProvider>
+    ),
+  })
+
+  expect(result.current.tickFormatter(1000)).toBe('1')
+})

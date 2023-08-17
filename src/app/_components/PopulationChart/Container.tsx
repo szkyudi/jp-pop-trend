@@ -6,7 +6,7 @@ type Props = {
   populations: Populations
 }
 export function Container({ populations }: Props) {
-  const { dataList } = usePopulationChart(populations)
+  const { dataList, tickFormatter } = usePopulationChart(populations)
 
-  return <Presenter dataList={dataList} />
+  return <Presenter dataList={dataList} tickFormatter={tickFormatter} />
 }

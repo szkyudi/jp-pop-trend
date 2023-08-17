@@ -18,6 +18,10 @@ export function usePopulationChart(populations: Populations) {
     return populations[prefCode].prefecture
   }
 
+  function tickFormatter(value: number) {
+    return `${value / 1000}`
+  }
+
   const dataList = checkedPrefCodes.map((prefCode) => {
     try {
       return {
@@ -29,5 +33,5 @@ export function usePopulationChart(populations: Populations) {
     }
   })
 
-  return { dataList }
+  return { dataList, tickFormatter }
 }
