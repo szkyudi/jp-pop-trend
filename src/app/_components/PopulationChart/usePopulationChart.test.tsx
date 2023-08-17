@@ -122,3 +122,59 @@ it('チェックされた人口種別だけが取得できること', () => {
     { year: 2022, value: 300 },
   ])
 })
+
+it('都道府県データが存在しないときはエラーが発生すること', () => {
+  expect(() =>
+    renderHook(() => usePopulationChart({}), {
+      wrapper: ({ children }) => (
+        <CheckedPrefCodesProvider defaultChecked={[13]}>
+          <CheckedPopulationTypeProvider defaultChecked='総人口'>
+            {children}
+          </CheckedPopulationTypeProvider>
+        </CheckedPrefCodesProvider>
+      ),
+    }),
+  ).toThrowError()
+})
+
+it('存在しない人口種別がチェックされているときは空配列が返されること', () => {
+  const { result } = renderHook(
+    () =>
+      usePopulationChart({
+        [13]: {
+          prefecture: {
+            prefCode: 13,
+            prefName: '東京都',
+          },
+          populations: {
+            boundaryYear: 2020,
+            data: [
+              {
+                label: '総人口',
+                data: [
+                  { year: 2020, value: 100 },
+                  { year: 2021, value: 200 },
+                  { year: 2022, value: 300 },
+                ],
+              },
+            ],
+          },
+        },
+      }),
+    {
+      wrapper: ({ children }) => (
+        <CheckedPrefCodesProvider defaultChecked={[13]}>
+          <CheckedPopulationTypeProvider defaultChecked='年少人口'>
+            {children}
+          </CheckedPopulationTypeProvider>
+        </CheckedPrefCodesProvider>
+      ),
+    },
+  )
+
+  const dataList = result.current.dataList.find(
+    (data) => data.prefecture.prefCode === 13,
+  )
+
+  expect(dataList?.data).toEqual([])
+})

@@ -7,29 +7,27 @@ export function usePopulationChart(populations: Populations) {
   const checkedPopulationType = useCheckedPopulationType()
 
   function getPopulationData(prefCode: number) {
-    try {
-      return (
-        populations[prefCode].populations.data.find(
-          (data) => data.label === checkedPopulationType,
-        )?.data ?? []
-      )
-    } catch (error) {
-      throw new Error(`都道府県コード${prefCode}は存在しません`)
-    }
+    return (
+      populations[prefCode].populations.data.find(
+        (data) => data.label === checkedPopulationType,
+      )?.data ?? []
+    )
   }
 
   function getPrefecture(prefCode: number) {
-    try {
-      return populations[prefCode].prefecture
-    } catch (error) {
-      throw new Error(`都道府県コード${prefCode}は存在しません`)
-    }
+    return populations[prefCode].prefecture
   }
 
-  const dataList = checkedPrefCodes.map((prefCode) => ({
-    prefecture: getPrefecture(prefCode),
-    data: getPopulationData(prefCode),
-  }))
+  const dataList = checkedPrefCodes.map((prefCode) => {
+    try {
+      return {
+        prefecture: getPrefecture(prefCode),
+        data: getPopulationData(prefCode),
+      }
+    } catch {
+      throw new Error(`都道府県コード${prefCode}は存在しません`)
+    }
+  })
 
   return { dataList }
 }

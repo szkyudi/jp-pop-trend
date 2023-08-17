@@ -69,4 +69,27 @@ const meta: Meta<typeof Container> = {
 
 export const Default: StoryObj<typeof Container> = {}
 
+export const NoData: StoryObj<typeof Container> = {
+  args: {
+    populations: {},
+  },
+}
+
+export const NoPopulationType: StoryObj<typeof Container> = {
+  args: {
+    populations: {
+      [13]: {
+        prefecture: {
+          prefCode: 13,
+          prefName: '東京',
+        },
+        populations: {
+          boundaryYear: 2021,
+          data: [],
+        },
+      },
+    },
+  },
+}
+
 export default meta
