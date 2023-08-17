@@ -1,4 +1,4 @@
-import { Presenter } from './Presenter.'
+import { Presenter } from './Presenter'
 import { usePopulationChart } from './usePopuationChart'
 import { Populations } from '@/lib/types/populations'
 
