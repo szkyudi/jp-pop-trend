@@ -16,11 +16,12 @@ type Props = {
     prefecture: components['schemas']['Prefecture']
     data: components['schemas']['Population'][]
   }[]
+  tickFormatter: (value: number) => string
 }
-export function PopulationChartPresenter({ dataList }: Props) {
+export function Presenter({ dataList, tickFormatter }: Props) {
   return (
     <div className={s.container}>
-      <ResponsiveContainer minWidth={720} width='100%' height={400}>
+      <ResponsiveContainer minWidth={720} width='100%' height={480}>
         <LineChart margin={{ top: 24, right: 24 }}>
           <CartesianGrid strokeDasharray='3 3' />
           <XAxis
@@ -40,7 +41,7 @@ export function PopulationChartPresenter({ dataList }: Props) {
               offset: -20,
               position: 'insideTopRight',
             }}
-            tickFormatter={(value) => (value / 1000).toString()}
+            tickFormatter={tickFormatter}
           />
           <Tooltip />
           <Legend />

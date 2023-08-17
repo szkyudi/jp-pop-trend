@@ -1,12 +1,12 @@
-import { PopulationChartPresenter } from './Presenter.'
+import { Presenter } from './Presenter'
 import { usePopulationChart } from './usePopuationChart'
 import { Populations } from '@/lib/types/populations'
 
 type Props = {
   populations: Populations
 }
-export function PopulationChartContainer({ populations }: Props) {
-  const { dataList } = usePopulationChart(populations)
+export function Container({ populations }: Props) {
+  const { dataList, tickFormatter } = usePopulationChart(populations)
 
-  return <PopulationChartPresenter dataList={dataList} />
+  return <Presenter dataList={dataList} tickFormatter={tickFormatter} />
 }

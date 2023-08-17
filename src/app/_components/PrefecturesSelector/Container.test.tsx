@@ -1,9 +1,19 @@
 import * as stories from './Container.stories'
 import { render } from '@testing-library/react'
 import { composeStories } from '@storybook/react'
-import userEvent from '@testing-library/user-event'
 
-const { Default, NoCheck, CheckedTokyoAndOsaka } = composeStories(stories)
+const { Default, NoCheck, CheckedTokyoAndOsaka, CheckTokyo, UncheckTokyo } =
+  composeStories(stories)
+
+it.each([
+  ['デフォルト', Default],
+  ['何もチェックしていないとき', NoCheck],
+  ['東京都と大阪府をチェックしているとき', CheckedTokyoAndOsaka],
+])('%sの表示が変わっていないこと', (_, Component) => {
+  const { container } = render(<Component />)
+
+  expect(container).toMatchSnapshot()
+})
 
 it('デフォルトで何もチェックされていないこと', () => {
   const result = render(<Default />)
@@ -12,18 +22,6 @@ it('デフォルトで何もチェックされていないこと', () => {
   checkboxes.forEach((checkbox) => {
     expect(checkbox).not.toBeChecked()
   })
-})
-
-it('選択しているときの表示が変わっていないこと', () => {
-  const result = render(<CheckedTokyoAndOsaka />)
-
-  expect(result).toMatchSnapshot()
-})
-
-it('選択していないときの表示が変わっていないこと', () => {
-  const result = render(<NoCheck />)
-
-  expect(result).toMatchSnapshot()
 })
 
 it('デフォルトのチェックが適用されること', () => {
@@ -35,21 +33,19 @@ it('デフォルトのチェックが適用されること', () => {
 })
 
 it('チェックができること', async () => {
-  const user = userEvent.setup()
-  const result = render(<Default />)
-  const checkbox = result.getByRole('checkbox', { name: '東京都' })
+  const result = render(<CheckTokyo />)
+  const tokyoCheckbox = result.getByRole('checkbox', { name: '東京都' })
 
-  await user.click(checkbox)
+  await CheckTokyo.play({ canvasElement: result.container })
 
-  expect(checkbox).toBeChecked()
+  expect(tokyoCheckbox).toBeChecked()
 })
 
 it('チェックが外れること', async () => {
-  const user = userEvent.setup()
-  const result = render(<CheckedTokyoAndOsaka />)
-  const checkbox = result.getByRole('checkbox', { name: '東京都' })
+  const result = render(<UncheckTokyo />)
+  const tokyoCheckbox = result.getByRole('checkbox', { name: '東京都' })
 
-  await user.click(checkbox)
+  await UncheckTokyo.play({ canvasElement: result.container })
 
-  expect(checkbox).not.toBeChecked()
+  expect(tokyoCheckbox).not.toBeChecked()
 })

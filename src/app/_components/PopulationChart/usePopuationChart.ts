@@ -14,10 +14,24 @@ export function usePopulationChart(populations: Populations) {
     )
   }
 
-  const dataList = checkedPrefCodes.map((prefCode) => ({
-    prefecture: populations[prefCode].prefecture,
-    data: getPopulationData(prefCode),
-  }))
+  function getPrefecture(prefCode: number) {
+    return populations[prefCode].prefecture
+  }
 
-  return { dataList }
+  function tickFormatter(value: number) {
+    return `${value / 1000}`
+  }
+
+  const dataList = checkedPrefCodes.map((prefCode) => {
+    try {
+      return {
+        prefecture: getPrefecture(prefCode),
+        data: getPopulationData(prefCode),
+      }
+    } catch {
+      throw new Error(`都道府県コード${prefCode}は存在しません`)
+    }
+  })
+
+  return { dataList, tickFormatter }
 }

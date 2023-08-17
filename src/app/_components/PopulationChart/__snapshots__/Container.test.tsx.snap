@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`2つ以上選択したときの表示が変わっていないこと 1`] = `
+<div>
+  <div
+    class="_container_170fcb"
+  >
+    <div
+      class="recharts-responsive-container"
+      style="width: 100%; height: 480px; min-width: 720px;"
+    />
+  </div>
+</div>
+`;
+
+exports[`デフォルトの表示が変わっていないこと 1`] = `
+<div>
+  <div
+    class="_container_170fcb"
+  >
+    <div
+      class="recharts-responsive-container"
+      style="width: 100%; height: 480px; min-width: 720px;"
+    />
+  </div>
+</div>
+`;
+
+exports[`表示が変わっていないこと 1`] = `
+<div>
+  <div
+    class="_container_170fcb"
+  >
+    <div
+      class="recharts-responsive-container"
+      style="width: 100%; height: 480px; min-width: 720px;"
+    />
+  </div>
+</div>
+`;
