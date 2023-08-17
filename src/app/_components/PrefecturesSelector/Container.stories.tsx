@@ -1,5 +1,7 @@
 import { Container } from './Container'
 import { CheckedPrefCodesProvider } from '@/app/_contexts/checkedPrefCodes'
+import { userEvent } from '@storybook/testing-library'
+import { within } from '@testing-library/react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Container> = {
@@ -86,4 +88,37 @@ export const CheckedTokyoAndOsaka: StoryObj<typeof Container> = {
     ),
   ],
 }
+
+export const CheckTokyo: StoryObj<typeof Container> = {
+  decorators: [
+    (Story) => (
+      <CheckedPrefCodesProvider defaultChecked={[]}>
+        <Story />
+      </CheckedPrefCodesProvider>
+    ),
+  ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tokyoCheckbox = canvas.getByRole('checkbox', { name: '東京都' })
+
+    await userEvent.click(tokyoCheckbox)
+  },
+}
+
+export const UncheckTokyo: StoryObj<typeof Container> = {
+  decorators: [
+    (Story) => (
+      <CheckedPrefCodesProvider defaultChecked={[13]}>
+        <Story />
+      </CheckedPrefCodesProvider>
+    ),
+  ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const tokyoCheckbox = canvas.getByRole('checkbox', { name: '東京都' })
+
+    await userEvent.click(tokyoCheckbox)
+  },
+}
+
 export default meta
