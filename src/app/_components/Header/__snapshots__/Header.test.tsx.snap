@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`表示に変更がないこと 1`] = `
-<DocumentFragment>
+<div>
   <header
     class="_header_146992"
   >
@@ -19,5 +19,5 @@ exports[`表示に変更がないこと 1`] = `
       </div>
     </div>
   </header>
-</DocumentFragment>
+</div>
 `;

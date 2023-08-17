@@ -22,9 +22,9 @@ it.each([
   ['チェック時', CheckedYoung],
   ['フォーカス時', Focus],
 ])('%sの表示が変わっていないこと', (_, Component) => {
-  const { asFragment } = render(<Component />)
+  const { container } = render(<Component />)
 
-  expect(asFragment).toMatchSnapshot()
+  expect(container).toMatchSnapshot()
 })
 
 it('デフォルトで「総人口」が選択されていること', () => {

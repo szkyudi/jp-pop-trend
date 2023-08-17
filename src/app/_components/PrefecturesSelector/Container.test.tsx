@@ -10,9 +10,9 @@ it.each([
   ['何もチェックしていないとき', NoCheck],
   ['東京都と大阪府をチェックしているとき', CheckedTokyoAndOsaka],
 ])('%sの表示が変わっていないこと', (_, Component) => {
-  const { asFragment } = render(<Component />)
+  const { container } = render(<Component />)
 
-  expect(asFragment).toMatchSnapshot()
+  expect(container).toMatchSnapshot()
 })
 
 it('デフォルトで何もチェックされていないこと', () => {
