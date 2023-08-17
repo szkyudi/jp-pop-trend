@@ -5,6 +5,16 @@ import { composeStories } from '@storybook/react'
 const { Default, NoCheck, CheckedTokyoAndOsaka, CheckTokyo, UncheckTokyo } =
   composeStories(stories)
 
+it.each([
+  ['デフォルト', Default],
+  ['何もチェックしていないとき', NoCheck],
+  ['東京都と大阪府をチェックしているとき', CheckedTokyoAndOsaka],
+])('%sの表示が変わっていないこと', (_, Component) => {
+  const { asFragment } = render(<Component />)
+
+  expect(asFragment).toMatchSnapshot()
+})
+
 it('デフォルトで何もチェックされていないこと', () => {
   const result = render(<Default />)
   const checkboxes = result.getAllByRole('checkbox')
@@ -12,18 +22,6 @@ it('デフォルトで何もチェックされていないこと', () => {
   checkboxes.forEach((checkbox) => {
     expect(checkbox).not.toBeChecked()
   })
-})
-
-it('選択しているときの表示が変わっていないこと', () => {
-  const result = render(<CheckedTokyoAndOsaka />)
-
-  expect(result).toMatchSnapshot()
-})
-
-it('選択していないときの表示が変わっていないこと', () => {
-  const result = render(<NoCheck />)
-
-  expect(result).toMatchSnapshot()
 })
 
 it('デフォルトのチェックが適用されること', () => {

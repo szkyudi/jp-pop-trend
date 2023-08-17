@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`チェック時の表示が変わっていないこと 1`] = `[Function]`;
+
+exports[`デフォルトの表示が変わっていないこと 1`] = `[Function]`;
+
+exports[`フォーカス時の表示が変わっていないこと 1`] = `[Function]`;
+
+exports[`表示が変わっていないこと 1`] = `[Function]`;

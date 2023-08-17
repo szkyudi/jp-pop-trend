@@ -4,6 +4,7 @@ import { composeStories } from '@storybook/react'
 
 const {
   Default,
+  Focus,
   CheckedYoung,
   ClickYoung,
   MoveDown,
@@ -15,6 +16,16 @@ const {
   MoveLeft,
   MoveLeftFromFirstRadio,
 } = composeStories(stories)
+
+it.each([
+  ['デフォルト', Default],
+  ['チェック時', CheckedYoung],
+  ['フォーカス時', Focus],
+])('%sの表示が変わっていないこと', (_, Component) => {
+  const { asFragment } = render(<Component />)
+
+  expect(asFragment).toMatchSnapshot()
+})
 
 it('デフォルトで「総人口」が選択されていること', () => {
   const { getByRole } = render(<Default />)

@@ -1,5 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`デフォルトの表示が変わっていないこと 1`] = `[Function]`;
+
+exports[`何もチェックしていないときの表示が変わっていないこと 1`] = `[Function]`;
+
+exports[`東京都と大阪府をチェックしているときの表示が変わっていないこと 1`] = `[Function]`;
+
 exports[`選択していないときの表示が変わっていないこと 1`] = `
 {
   "asFragment": [Function],

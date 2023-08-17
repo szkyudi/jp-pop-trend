@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`表示に変更がないこと 1`] = `
+<DocumentFragment>
+  <header
+    class="_header_146992"
+  >
+    <div
+      class="_container_450716"
+    >
+      <div
+        class="_container_146992"
+      >
+        <h1
+          class="_title_146992"
+        >
+          JP-POP-TREND
+        </h1>
+      </div>
+    </div>
+  </header>
+</DocumentFragment>
+`;
