@@ -17,7 +17,7 @@ type Props = {
     data: components['schemas']['Population'][]
   }[]
 }
-export function PopulationChartPresenter({ dataList }: Props) {
+export function Presenter({ dataList }: Props) {
   return (
     <div className={s.container}>
       <ResponsiveContainer minWidth={720} width='100%' height={480}>

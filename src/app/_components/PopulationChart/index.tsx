@@ -1,6 +1,6 @@
 'use client'
 
-import { PopulationChartContainer } from './Container'
+import { Container } from './Container'
 import { Populations } from '@/lib/types/populations'
 import { useState, useEffect } from 'react'
 
@@ -19,5 +19,5 @@ export function PopulationChart({ populations }: Props) {
     return null
   }
 
-  return <PopulationChartContainer populations={populations} />
+  return <Container populations={populations} />
 }
