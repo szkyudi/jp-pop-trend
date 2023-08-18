@@ -1,3 +1,4 @@
+import { ErrorBoundary } from 'react-error-boundary'
 import type { Metadata } from 'next'
 import './global.scss'
 
@@ -13,7 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ja'>
-      <body>{children}</body>
+      <body>
+        <ErrorBoundary
+          fallback={<div>エラーが発生しました。再読み込みしてください。</div>}
+        >
+          {children}
+        </ErrorBoundary>
+      </body>
     </html>
   )
 }
