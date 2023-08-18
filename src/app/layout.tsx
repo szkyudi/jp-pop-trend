@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import './global.scss'
 
 export const metadata: Metadata = {
-  title: '都道府県別の総人口推移グラフを表示するSPA',
+  title: 'JP-POP-TREND',
+  description: '都道府県別の総人口推移グラフを表示するSPA',
 }
 
 export default function RootLayout({
